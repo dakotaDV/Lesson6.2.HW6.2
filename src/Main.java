@@ -1,7 +1,7 @@
 public class Main {
 
 
-    int[] arr = generateRandomArray();
+
     public static int[] generateRandomArray() {
         java.util.Random random = new java.util.Random();
         int[] arr = new int[30];
@@ -17,9 +17,8 @@ public class Main {
         // в формате: «Сумма трат за месяц составила … рублей».
 
         int[] arr = generateRandomArray();
-        int [] costs = new int[30];
         int arrMonth = 0;
-        for (int i = 0; i < costs.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             arrMonth += arr[i];
         }
         System.out.println("Сумма трат за месяц составила " + arrMonth + " рублей.");
@@ -28,22 +27,22 @@ public class Main {
         // Нужно написать программу, которая решит эту задачу, и вывести в консоль результат
         // в формате: «Минимальная сумма трат за день составила … рублей. Максимальная сумма трат за день составила … рублей».
 
-        arr = generateRandomArray();
-        int arrMin = 0;
-        for (int i = 0; i < arr.length - 1; i++) {
-            if (arr[i + 1] != 0 + arrMin) {
-                arrMin = arr[i];
+       var wastes= generateRandomArray();
+        int min = wastes[0];
+        for (int i = 0; i < wastes.length; i++) {
+            if (min > wastes[i]) {
+                min = wastes[i];
             }
         }
-            System.out.println("Минимальная сумма трат за день составила " + arrMin + " рублей.");
+            System.out.println("Минимальная сумма трат за день составила " + min + " рублей.");
 
-        int arrMax= 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > arrMax) {
-                arrMax = arr[i];
+        int max= wastes[0];
+        for (int i = 0; i < wastes.length; i++) {
+            if (max < wastes[i]) {
+                max = wastes[i];
             }
         }
-            System.out.println("Максимальная сумма трат за день составила " + arrMax + " рублей." );
+            System.out.println("Максимальная сумма трат за день составила " + max + " рублей." );
 
         // task3
         // А теперь нам нужно понять, какую в среднем сумму наша компания тратила в течение данных 30 дней.
@@ -52,7 +51,7 @@ public class Main {
         // и вывести в консоль результат в формате: «Средняя сумма трат за месяц составила … рублей».
         // **Важно помнить:** подсчет среднего значения может иметь остаток (то есть быть не целым, а дробным числом).
 
-       var wastes = generateRandomArray();
+       wastes = generateRandomArray();
        int sum = 0;
         for (var waste : wastes) {
           sum += waste;
